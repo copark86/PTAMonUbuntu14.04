@@ -165,8 +165,8 @@ set(PROJ_CALIB_INCLUDE
 	${CMAKE_SOURCE_DIR}/PTAM/CameraCalibrator.h
 )
 
-file(GLOB filesConfig ${CMAKE_SOURCE_DIR}/PTAM/*.cfg)
-foreach(file ${filesconfig})
+file(GLOB files "${CMAKE_SOURCE_DIR}/PTAM/*.cfg")
+foreach(file ${files})
 	file(COPY ${file} DESTINATION ${CMAKE_BINARY_DIR})
 endforeach(file)
 
