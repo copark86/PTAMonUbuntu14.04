@@ -1,4 +1,10 @@
 PTAMonUbuntu14.04
 =================
 
-a bash script and patches to compile PTAM (Parallel Tracking and Mapping) on Ubuntu 14.04 with CMake
+This repository is for enabling PTAM compilable on Ubuntu 14.04 with CMake.
+This repository uses PTAM-linux-cv2.3(https://github.com/nttputus/PTAM-linux-cv2.3).
+- PTAM-Ubuntu14.04Cmake.bash: a bash script installs required packages, compiles necessary libraries, and compiles PTAM using CMake,
+- PTAM-r114-linuxYuji.patch: a patch applied to PTAM sources after the patch of PTAM-linux-cv2.3 to fix some bugs of the patch,
+- fileForCmake: a set of files needed for PTAM compilation using CMake.
+
+If you already know PTAM-linux-cv2.3, put all files in fileForCmake directory in the directory "PTAM-linux-cv2.3-master/PTAM".
