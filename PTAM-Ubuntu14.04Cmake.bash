@@ -63,11 +63,20 @@ sudo ldconfig
 pushd $dirPtam
 unzip $dirTop/PTAM-r114-2010129.zip
 patch -p0 -d . < $dirTop/hack/PTAM/PTAM-r114-linux.patch
-patch -p0 -d . < $dirTop/YujiPTAM-r114-linux.patch
-cd PTAM
+
+wget https://github.com/charmie11/PTAMonUbuntu14.04/archive/master.zip
+unzip master.zip
+dirCmake=$dirPtam/PTAMonUbuntu14.04-master
+patch -p0 -d . < $dirCmake/PTAM-r114-linuxYuji.patch
+cp $dirCmake/fileForCmake/CMakeLists.txt $dirPtam/CMakeLists.txt
+mkdir $dirPtam/cmake
+cp $dirCmake/fileForCmake/cmake/* $dirPtam/cmake
+pushd PTAM
 cp Build/Linux/* .
+popd
+# cmake related file
 dirBuild=build-dir
-make $dirBuild
+mkdir $dirBuild
 cd $dirBuild
 cmake -DCMAKE_BUILD_TYPE=Release ..
 make -j4
