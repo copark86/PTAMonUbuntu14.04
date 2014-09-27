@@ -16,4 +16,7 @@ This repository uses PTAM-linux-cv2.3(https://github.com/nttputus/PTAM-linux-cv2
 - PTAM-r114-linuxYuji.patch: a patch applied to PTAM sources after the patch of PTAM-linux-cv2.3 to fix some bugs of the patch,
 - fileForCmake: a set of files needed for PTAM compilation using CMake.
 
-If you already know PTAM-linux-cv2.3, put all files in fileForCmake directory in the directory "PTAM-linux-cv2.3-master/PTAM".
+If you already know PTAM-linux-cv2.3,
+- apply the patch PTAM-r114-linuxYuji.patch,
+- put all files in fileForCmake directory in the directory "PTAM-linux-cv2.3-master/PTAM",
+- then run cmake and make
