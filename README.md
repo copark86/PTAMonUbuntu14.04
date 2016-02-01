@@ -3,6 +3,8 @@ PTAMonUbuntu14.04
 
 This repository is for enabling PTAM compilable on Ubuntu 14.04 with CMake.
 
+The version of TooN, used in PTAM, must not be the latest version. With TooN version 2.0, I could compile libCVD and Gvars without any error.
+
 What to do is to download PTAM-Ubuntu14.04Cmake.bash and run it. The bash
 - installs all required libraries using Ubuntu package manager,
 - downloads, compiles, and installs required C++ libraries,
