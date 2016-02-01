@@ -6,13 +6,13 @@
 
 # required libraries
 sudo apt-get update
-sudo apt-get install build-essential cmake pkg-config
-sudo apt-get install gfortran
-sudo apt-get install liblapack-dev libblas-dev
-sudo apt-get install libjpeg-dev libpng-dev libtiff-dev libdc1394-22-dev libv4l-dev 
-sudo apt-get install libavcodec-dev libavformat-dev libavutil-dev libpostproc-dev libswscale-dev libavdevice-dev libsdl-dev
-sudo apt-get install libgtk2.0-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev 
-sudo apt-get install mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev libdc1394-22-dev
+sudo apt-get -yV install build-essential cmake pkg-config
+sudo apt-get -yV install gfortran
+sudo apt-get -yV install liblapack-dev libblas-dev
+sudo apt-get -yV install libjpeg-dev libpng-dev libtiff-dev libdc1394-22-dev libv4l-dev 
+sudo apt-get -yV install libavcodec-dev libavformat-dev libavutil-dev libpostproc-dev libswscale-dev libavdevice-dev libsdl-dev
+sudo apt-get -yV install libgtk2.0-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev 
+sudo apt-get -yV install mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev libdc1394-22-dev
 
 nameSource=PTAMpackage
 wget -O $nameSource.zip https://github.com/nttputus/PTAM-linux-cv2.3/archive/master.zip
@@ -27,8 +27,10 @@ mkdir -p $dirPtam
 
 # TooN
 pushd $dirPtam
-git clone git://github.com/edrosten/TooN.git
-cd TooN
+# git clone https://github.com/edrosten/TooN.git
+wget https://github.com/edrosten/TooN/archive/TOON_2.0.tar.gz
+tar zxvf TOON_2.0.tar.gz
+cd TooN-TOON_2.0
 ./configure
 make
 sudo make install
@@ -36,7 +38,7 @@ popd
 
 # LibCVD
 pushd $dirPtam
-git clone git://github.com/edrosten/libcvd.git
+git clone https://github.com/edrosten/libcvd.git
 cd libcvd
 mv cvd_src/convolution.cc cvd_src/convolution.cc-original
 cp $dirTop/hack/libcvd/convolution.cc cvd_src/convolution.cc
@@ -48,10 +50,10 @@ popd
 
 # Gvars3
 pushd $dirPtam
-git clone git://github.com/edrosten/gvars.git
+git clone https://github.com/edrosten/gvars.git
 cd gvars
-mv gvars/serialize.h gvars/serialize.h-original
-cp $dirTop/hack/gvars3/serialize.h gvars3/serialize.h
+#mv gvars/serialize.h gvars/serialize.h-original
+#cp $dirTop/hack/gvars3/serialize.h gvars3/serialize.h
 ./configure --disable-widgets
 make
 sudo make install
