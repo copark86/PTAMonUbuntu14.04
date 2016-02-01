@@ -7,6 +7,7 @@
 # required libraries
 sudo apt-get update
 sudo apt-get install build-essential cmake pkg-config
+sudo apt-get install gfortran
 sudo apt-get install liblapack-dev libblas-dev
 sudo apt-get install libjpeg-dev libpng-dev libtiff-dev libdc1394-22-dev libv4l-dev 
 sudo apt-get install libavcodec-dev libavformat-dev libavutil-dev libpostproc-dev libswscale-dev libavdevice-dev libsdl-dev
